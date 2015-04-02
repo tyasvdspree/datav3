@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jersey">
+    <CLASSES>
+      <root url="file://$MAVEN_REPOSITORY$/com/sun/jersey" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
