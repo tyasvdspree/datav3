@@ -18,7 +18,7 @@ private List<String> searchQuery = Arrays.asList(searchString);
 
 public void twitterSearch() throws TwitterException, IOException, InterruptedException, ClassNotFoundException, SQLException
     {
-    TwitterDB twitterDB = new TwitterDB("test");
+    Database database = new Database("test");
     for (int i = 0; i < queryAttitude.size(); i++)
         {
         for (int j = 0; j < searchQuery.size(); j++)
@@ -37,7 +37,7 @@ public void twitterSearch() throws TwitterException, IOException, InterruptedExc
                     for (Status tweet : tweets)
                         {
                         System.out.print(tweet.getText());
-                        twitterDB.updatedb(tweet.getId(), tweet.getUser().getScreenName(), tweet.getText(), tweet.getRetweetCount(), tweet.getFavoriteCount(), tweet.getCreatedAt(), queryAttitude.get(i));
+                        database.updatedb(tweet.getId(), tweet.getUser().getScreenName(), tweet.getText(), tweet.getRetweetCount(), tweet.getFavoriteCount(), tweet.getCreatedAt(), queryAttitude.get(i));
                         }
                     }
                 while ((query = result.nextQuery()) != null);

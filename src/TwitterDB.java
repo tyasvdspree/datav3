@@ -46,22 +46,23 @@ public class TwitterDB
     public void updatedb(Long tweetId, String tweetUser, String tweetText, int tweetRetweetCount, int tweetFavoriteCount, Date tweetCreatedAt, String tweetAttitude) throws ClassNotFoundException, SQLException
         {
         try
-            {
+        {
 
             ResultSet resultSet = statement.executeQuery("SELECT tweetId FROM Tweet");
             while (resultSet.next())
-                {
+            {
                 if (tweetId != resultSet.getLong(0))
-                    {
+                {
                     PreparedStatement psInsert = conn.prepareStatement("INSERT INTO tweet(tweetId, tweetUser, tweetText, tweetRetweetCount, tweetFavoriteCount, tweetCreatedAt, tweetAttitude) " +
                             "VALUE (tweetId, tweetUser, tweetText, tweetRetweetCount, tweetFavoriteCount, tweetCreatedAt, tweetAttitude)");
                     psInsert.executeUpdate();
-                    }
                 }
-            } finally
-            {
-            statement.close();
             }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
         }
 
 
