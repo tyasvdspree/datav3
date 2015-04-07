@@ -29,7 +29,7 @@ public class NsApiReader
     String departureTrack;
     String travelTip;
 
-    public void getNsApiData()
+    public void getNsApiData(Database database)
         {
         final String USERNAME = "christianlangejan@hotmail.com";
         final String PASSWORD = "APREZyc2aQ0I1viyFEMmhsD6-ciFxzNGXgA5NTLCkj2bq_aITYjxdQ";
@@ -44,7 +44,7 @@ public class NsApiReader
 
         departTimes = webResource.get(String.class);
         Stringrestucture();
-        writeToDatabase();
+        writeToDatabase(database);
         }
 
     private void Stringrestucture()
@@ -64,7 +64,7 @@ public class NsApiReader
         //System.out.println(departTimes);
         }
 
-    private void writeToDatabase()
+    private void writeToDatabase(Database database)
         {
         /*
         try {
@@ -96,10 +96,6 @@ public class NsApiReader
             //; should signal a new train with its information. clear all types
             if(Character.toString(departTimes.charAt(i)).equals(";"))
                 {
-
-                //todo write to db
-
-                NsDB nsdb = new NsDB("nsDB");
                 //remove if it works
                 /*try
                 {

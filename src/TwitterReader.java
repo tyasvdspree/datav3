@@ -16,9 +16,8 @@ private String[] searchString = {"RdamCentraal", "RCentraal", "RotterdamCentraal
 private List<String> queryAttitude = Arrays.asList(attitude);
 private List<String> searchQuery = Arrays.asList(searchString);
 
-public void twitterSearch() throws TwitterException, IOException, InterruptedException, ClassNotFoundException, SQLException
+public void twitterSearch(Database database) throws TwitterException, IOException, InterruptedException, ClassNotFoundException, SQLException
     {
-    Database database = new Database("test");
     for (int i = 0; i < queryAttitude.size(); i++)
         {
         for (int j = 0; j < searchQuery.size(); j++)
